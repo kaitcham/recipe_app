@@ -1,0 +1,30 @@
+<h1>Recipes</h1>
+
+<% if @recipes.empty? %>
+  <h3> Empty! </h3>
+<% else %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Preparation_time</th>
+      <th>Cooking_time</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+        <tr>
+            <td> <%= recipe.name %> </td>
+            <td> <%= recipe.preparation_time %> </td>
+            <td> <%= recipe.cooking_time %> </td>
+            <td> <%= recipe.description %> </td>
+            <td> <%= link_to "Delete", @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger  btn-sm" %> </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<%= link_to "New recipe", new_recipe_path %>
