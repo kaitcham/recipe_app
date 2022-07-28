@@ -1,0 +1,33 @@
+<h1>Foods</h1>
+
+<div class="d-flex justify-content-end">
+  <%= link_to "New food", new_food_path, class: "btn btn-primary" %>
+</div>
+
+<% if @foods.empty? %>
+  <h3> Empty! </h3>
+<% else %>
+  <div id="foods">
+    <br/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Food</th>
+                <th>measurement unit</th>
+                <th>Unit price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @foods.each do |food| %>
+                    <tr>
+                        <td> <%= food.name %> </td>
+                        <td> <%= food.measurement_unit %> </td>
+                        <td> <%= food.price %> </td>
+                        <td> <%= link_to "Delete", @food, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> </td>
+                    </tr>
+            <% end %>
+        </tbody>
+    </table>
+  </div>
+<% end %>
