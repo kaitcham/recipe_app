@@ -4,12 +4,20 @@
         <div class="public_recipe">
             <div class="">
                 <p><%= link_to "#{recipe.name}", recipe_path(recipe) %></p>
-                <p>By: <%= recipe.name %></p>
+                <p>By: <%= recipe.user.name %></p>
             </div>
             <div class="">
-                <p>Total food items: <%= @public_recipes.count %> </p>
-                <p>Total price: </p>
+                <p>Total food items: <%= recipe.user.foods.count %> </p>
+                <p>Total price:
+                    <% sum = 0 %>
+                    <% recipe.user.foods.each do |food| %>
+                        <% sum += food.quantity * food.price %>
+                    <%end%>
+                    <%= sum %>
+                </p>
             </div>
         </div>
     <%end%>
 </div>
+
+
