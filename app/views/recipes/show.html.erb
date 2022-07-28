@@ -1,0 +1,19 @@
+<h1 class="text-center"><%= @recipe.name %></h1>
+<br/>
+<div class="row">
+  <div class="col-sm">
+    <p> Preparation time: <%= @recipe.preparation_time %> </p>
+    <P> Cooking Time: <%= @recipe.cooking_time %> </p>
+    <p> <%= @recipe.description %> </p>
+  </div>
+  <div class="col-sm">
+    <% if @recipe.public %>
+      <p>This recipe is public</p>
+    <% else %>
+      <p>This recipe is not public</p>
+    <% end %>
+  </div>
+</div>
+<hr/>
+<p><%= link_to "Back to recipes", recipes_path %></p>
+<%= button_to "Destroy this recipe", @recipe, method: :delete %>
