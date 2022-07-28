@@ -4,7 +4,7 @@
             <ul class="recipe">
               <li>
                 <%= link_to "#{recipe.name}", recipe_path(recipe) %>
-                <%= link_to 'Remove', root_path, class: "remove" %>
+                <%= link_to 'Remove', recipes_path, class: "remove" %>
               </li>
               <li>
                 <%= recipe.description %>
