@@ -1,0 +1,28 @@
+<h1>New recipe food</h1>
+
+<%= form_with model: @recipe_food, url: recipe_foods_path, method: :post, class: 'form' do |form| %>
+  <div>
+    <%= form.label :quantity, 'Quantity' %><br>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :recipe_id, 'Recipe' %><br>
+    <%= form.select :recipe_id, @recipes.map {|f| [f.name, f.id] } %>
+  </div>
+
+  <div>
+    <%= form.label :food_id, 'Food' %><br>
+    <%= form.select :food_id, @foods.map {|f| [f.name, f.id] } %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to recipe foods", recipe_foods_path %>
+</div>
