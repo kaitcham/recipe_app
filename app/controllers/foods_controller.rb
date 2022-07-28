@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
     @food.user_id = current_user.id
 
     if @food.save
-      flash[:notice] = "Food created successfully!"
+      flash[:notice] = 'Food created successfully!'
       redirect_to foods_path
     else
       flash[:notice] = "Couldn't create a new food, Please try again!"
@@ -23,6 +23,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity) 
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end
