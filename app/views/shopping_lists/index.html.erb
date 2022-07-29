@@ -1,0 +1,34 @@
+<div class= "container">
+    <div class= "d-flex justify-content-between">
+        <p> Amount of food items to buy: <%= @shopping_list.count %> </p>
+        <p>Total value of food needed:
+            <% sum = 0 %>
+                <% @shopping_list.each do |food| %>
+                <% sum += food.quantity * food.price %>
+            <%end%>
+            <%= sum %>
+        </p>
+    </div>
+
+    <div id="foods">
+        <br/>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @shopping_list.each do |item| %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.quantity %></td>
+                    <td><%= item.price * item.quantity%></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <div>
+</div>
