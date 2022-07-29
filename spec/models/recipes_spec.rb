@@ -9,7 +9,7 @@ RSpec.describe Recipe, type: :model do
   it 'invalid if name is absent' do
     @user = User.create!(name: 'Chris', email: 'Chrismlg90@gmail.com', password: 'Chris123')
     @recipe = @user.recipes.create(name: 'Chapati', description: 'tasty', preparation_time: 'ten', cooking_time: 'four')
-    expect(@recipe.name).to be_valid
+    expect(@recipe).to be_valid
   end
   it 'Recipe must be associated with a user' do
     @recipe = Recipe.create(name: 'Chapati', description: 'tasty', preparation_time: 'ten', cooking_time: 'thirty')
