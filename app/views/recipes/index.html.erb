@@ -1,0 +1,17 @@
+<div class="section">
+    <h1><%= current_user.name %> Recipes</h1>
+        <%@recipes.each do |recipe|%>
+            <ul class="recipe">
+              <li>
+                <%= link_to "#{recipe.name}", recipe_path(recipe) %>
+                <%= button_to "Remove", recipe, method: :delete, class: "btn btn-danger" %>
+              </li>
+              <li>
+                <%= recipe.description %>
+              </li>
+            </ul>
+        <%end%>
+    <%= link_to new_recipe_path do %>
+       <button>New Recipe</button>
+    <% end %>
+</div>
