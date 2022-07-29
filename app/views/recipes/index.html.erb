@@ -4,7 +4,7 @@
             <ul class="recipe">
               <li>
                 <%= link_to "#{recipe.name}", recipe_path(recipe) %>
-                <%= link_to 'Remove', recipes_path, class: "remove" %>
+                <%= button_to "Remove", recipe, method: :delete, class: "btn btn-danger" %>
               </li>
               <li>
                 <%= recipe.description %>
